@@ -1,1 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的半年纪念</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family: "Microsoft Yahei", sans-serif;}
+        body{
+            background: #fff7f9;
+            overflow:hidden;
+            height:100vh;
+        }
+        .page-container{
+            width:100%;
+            height:100vh;
+            position:relative;
+        }
+        .page{
+            width:100%;
+            height:100vh;
+            position:absolute;
+            top:0;
+            left:0;
+            opacity:0;
+            transition: opacity 0.6s ease-in-out;
+            padding: 40px 20px;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+        }
+        .page.active{opacity:1;z-index:10;}
+        img{
+            max-width: 85%;
+            max-height: 60vh;
+            border-radius:16px;
+            box-shadow: 0 4px 16px rgba(220,160,180,0.35);
+            object-fit:cover;
+            margin-bottom:24px;
+        }
+        .text{
+            font-size:18px;
+            color:#552b3b;
+            text-align:center;
+            line-height:1.8;
+            max-width: 85%;
+        }
+        .tip{
+            position:absolute;
+            bottom:40px;
+            color:#b88899;
+            font-size:14px;
+        }
+        .page-num{
+            position:absolute;
+            top:24px;
+            color:#cc99aa;
+        }
+
+        /* 爱心飘落样式 */
+        .heart{
+            position: fixed;
+            color: #ff8fb0;
+            font-size: 20px;
+            pointer-events: none;
+            animation: fall linear infinite;
+            z-index: 1;
+            opacity: 0.7;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* 弹窗样式 */
+        .mask{
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background: rgba(0,0,0,0.4);
+            z-index:99;
+            display:none;
+            align-items:center;
+            justify-content:center;
+            padding:20px;
+        }
+        .modal{
+            background:#fff7f9;
+            padding:36px 28px;
+            border-radius:20px;
+            max-width:340px;
+            text-align:center;
+            box-shadow: 0 6px 24px rgba(180,120,140,0.35);
+        }
+        .modal p{
+            color:#552b3b;
+            font-size:18px;
+            line-height:1.9;
+        }
+        .mask.show{
+            display:flex;
+        }
+    </style>
+</head>
+<body>
+<audio id="bgMusic" loop>
+    <!-- 这里替换成你的mp3音频链接 -->
+    <source src="https://music.xxx.com/xxx.mp3" type="audio/mpeg">
+
+
+<div class="page-container">
+    <!-- 第1页 -->
+    <div class="page active">
+        <div class="page-num">1 / 10</div>
+        <img src="imgUrl1">
+        <div class="text">
+            哈喽，我的女孩。<br>
+            不知不觉，我们已经半年啦。
+        </div>
+        <div class="tip">点击屏幕任意位置，翻开下一页</div>
+    </div>
+    <!-- 第2页 -->
+    <div class="page">
+        <div class="page-num">2 / 10</div>
+        <img src="imgUrl2">
+        <div class="text">
+            还记得我们第一次见面的时候，<br>
+            见到你的那一刻，心跳好像漏了一拍。
+        </div>
+    </div>
+    <!-- 第3页 -->
+    <div class="page">
+        <div class="page-num">3 / 10</div>
+        <img src="imgUrl3">
+        <div class="text">
+            和你聊天的每一天，都充满期待。<br>
+            慢慢发现，越来越喜欢和你待在一起。
+        </div>
+    </div>
+    <!-- 第4页 -->
+    <div class="page">
+        <div class="page-num">4 / 10</div>
+        <img src="imgUrl4">
+        <div class="text">
+            我们一起走过的街道，<br>
+            吃过的小吃，吹过的晚风。<br>
+            平凡的小事，因为是你变得特别。
+        </div>
+    </div>
+    <!-- 第5页 -->
+    <div class="page">
+        <div class="page-num">5 / 10</div>
+        <img src="imgUrl5">
+        <div class="text">
+            当然我们也会有小争吵，<br>
+            但每次我更确定，不想失去你。
+        </div>
+    </div>
+    <!-- 第6页 -->
+    <div class="page">
+        <div class="page-num">6 / 10</div>
+        <img src="imgUrl6">
+        <div class="text">
+            我喜欢看你笑的样子，<br>
+            你的笑容，是治愈我的良药。
+        </div>
+    </div>
+    <!-- 第7页 -->
+    <div class="page">
+        <div class="page-num">7 / 10</div>
+        <img src="imgUrl7">
+        <div class="text">
+            谢谢你包容我的小缺点，<br>
+            愿意陪我，一起慢慢往前走。
+        </div>
+    </div>
+    <!-- 第8页 -->
+    <div class="page">
+        <div class="page-num">8 / 10</div>
+        <img src="imgUrl8">
+        <div class="text">
+            半年只是开始，不是终点。<br>
+            往后还有好多季节想和你一起体验。
+        </div>
+    </div>
+    <!-- 第9页 -->
+    <div class="page">
+        <div class="page-num">9 / 10</div>
+        <img src="imgUrl9">
+        <div class="text">
+            未来想去很多地方，<br>
+            所有美好计划，主角都是你。
+        </div>
+    </div>
+    <!-- 第10页 结尾 -->
+    <div class="page">
+        <div class="page-num">10 / 10</div>
+        <img src="imgUrl10">
+        <div class="text">
+            半年快乐，宝贝。<br>
+            我爱你，不止这半年，是很久很久。
+        </div>
+    </div>
+</div>
+
+<!-- 告白弹窗 -->
+<div class="mask" id="mask">
+    <div class="modal">
+        <p>💌 致我最爱的女孩<br><br>
+        半年只是故事的序章。<br>
+        往后春夏秋冬，<br>
+        日出日落，三餐四季，<br>
+        我都想和你一起。<br><br>
+        永远偏爱你。❤️
+        </p>
+    </div>
+</div>
+
+<script>
+    const pages = document.querySelectorAll('.page');
+    const audio = document.getElementById('bgMusic');
+    const mask = document.getElementById('mask');
+    let currentPage = 0;
+    let modalShowed = false; // 标记弹窗只弹出一次
+
+    // 点击翻页 + 触发音乐播放
+    document.body.addEventListener('click', ()=>{
+        audio.play().catch(e=>{});
+        // 如果已经到最后一页，不再翻页
+        if(currentPage >= pages.length -1){
+            return;
+        }
+        pages[currentPage].classList.remove('active');
+        currentPage++;
+        pages[currentPage].classList.add('active');
+
+        // 到达第10页，延时弹出弹窗
+        if(currentPage === 9 && !modalShowed){
+            modalShowed = true;
+            setTimeout(()=>{
+                mask.classList.add('show');
+            },1500);
+        }
+    })
+
+    // 点击弹窗关闭
+    mask.addEventListener('click', ()=>{
+        mask.classList.remove('show');
+    })
+
+    // 爱心飘落生成代码
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = '♥';
+        // 随机横向位置、大小、下落时长
+        const left = Math.random() * 100;
+        const size = Math.random() * 20 + 12;
+        const duration = Math.random() * 4 + 4;
+        heart.style.left = left + '%';
+        heart.style.fontSize = size + 'px';
+        heart.style.animationDuration = duration + 's';
+        document.body.appendChild(heart);
+
+        // 动画结束删除爱心，防止页面越来越卡
+        setTimeout(() => {
+            heart.remove();
+        }, duration * 1000);
+    }
+    // 每隔300ms生成一颗爱心
+    setInterval(createHeart, 300);
+</script>
+</body>
+</html>
 
